@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* Títulos */
+h1, h2, h3, h4, .titulo {
+  font-family: 'League Spartan';
+  font-weight: 800;
+}
+
+/* Subtítulos o textos destacados */
+.subtitulo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}

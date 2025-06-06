@@ -8,3 +8,62 @@
     width: 14em;
     height: auto;
 }
+.logo-banner{
+    width: 40em;
+    height: auto;
+}
+
+.carousel-section {
+  height: 80vh; /* Ocupa toda la altura de la pantalla */
+  overflow: hidden;
+}
+
+.carousel-inner img {
+  object-fit: cover;
+}
+
+.text-shadow {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+}
+.custom-control {
+  height: 100%;
+  top: 0;
+  background: transparent;
+  border: none;
+  z-index: 5;
+}
+
+.carousel-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev .carousel-icon-wrapper {
+  left: 10%;
+}
+
+.carousel-control-next .carousel-icon-wrapper {
+  right: 10%;
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+#entregas .carousel-inner {
+  overflow-x: auto;
+}
+
+#entregas .carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+
+.h-fixed {
+  height: 100%;        /* Altura fija */
+  width: auto;          /* Ancho automático según proporción */
+  object-fit: contain;  /* Opcional: evita que se recorte */
+}

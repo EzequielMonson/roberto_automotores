@@ -1,72 +1,245 @@
 <!-- HERO SECTION -->
-<section class="hero-section d-flex align-items-center justify-content-center text-center">
+<section
+  class="hero-section d-flex align-items-center justify-content-center text-center"
+>
   <div>
-    <h1
+    <img
+      src="assets/img/Logo.png"
+      alt="Logo Roberto Automotores"
+      class="logo-banner animate-on-scroll"
+      data-animation="animate__zoomIn"
+    />
+    <h4
       class="display-3 fw-bold animate-on-scroll"
       data-animation="animate__fadeInUp"
+      style="text-transform: uppercase; font-size: larger;"
     >
       Tu auto, sin vueltas.
-    </h1>
-    <p class="lead animate-on-scroll" data-animation="animate__fadeInUp">
+    </h4>
+    <!-- <p class="lead animate-on-scroll" data-animation="animate__fadeInUp">
       Transparencia, agilidad y confianza en cada paso.
-    </p>
-    <a
+    </p> -->
+    <!-- <a
       class="btn btn-danger btn-lg mt-3 animate-on-scroll"
       data-animation="animate__fadeInUp"
       href="#autos"
       >Ver vehículos disponibles</a
-    >
+    > -->
   </div>
 </section>
 <!-- QUIÉNES SOMOS -->
-<section class="py-5 text-center animate-on-scroll" data-animation="animate__fadeInUp" style="background-color: #36090e;">
+<section class="py-5 text-center" style="background-color: #200609">
   <div class="container">
-    <img src="assets/img/Logo.png" alt="Logo Roberto Automotores" class="logo">
+    <img
+      src="assets/img/Logo.png"
+      alt="Logo Roberto Automotores"
+      class="logo animate-on-scroll"
+      data-animation="animate__zoomIn"
+    />
     <!-- <h2 class="fw-bold text-danger mb-3">Roberto Automotores</h2> -->
-    <p class="lead" style="color: white">
-      Somos una agencia con más de 30 años de experiencia en la venta de autos usados y 0 km. Nos especializamos en brindar atención personalizada, financiación rápida y acompañamiento real en todo el proceso.
+    <p
+      class="lead animate-on-scroll"
+      data-animation="animate__zoomIn"
+      style="color: white"
+    >
+      Somos una agencia con más de 30 años de experiencia en la venta de autos
+      usados y 0 km. Nos especializamos en brindar atención personalizada,
+      financiación rápida y acompañamiento real en todo el proceso.
     </p>
+  </div>
+</section>
+<!-- NUESTRA AGENCIA -->
+<section class="carousel-section position-relative text-white">
+  <!-- Texto flotante centrado -->
+  <div
+    class="position-absolute start-50 translate-middle text-center z-3 animate-on-scroll"
+    data-animation="animate__zoomIn"
+    style="top: 80% !important"
+  >
+    <h2 class="fw-bold display-4 text-shadow">Nuestra agencia</h2>
+    <p class="lead text-shadow">
+      Conocé el lugar donde comienza tu próxima aventura
+    </p>
+  </div>
+
+  <!-- Fondo oscuro para contraste -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50 z-2 pointer-none"
+  ></div>
+
+  <!-- Carrusel -->
+  <div
+    id="agenciaCarousel"
+    class="carousel slide h-100 z-1"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100">
+        <img
+          src="assets/img/agencia/agencia1.jpg"
+          class="d-block w-100 h-100 object-fit-cover"
+          alt="Fachada"
+        />
+      </div>
+
+      <div class="carousel-item h-100">
+        <img
+          src="assets/img/agencia/agencia2.jpg"
+          class="d-block w-100 h-100 object-fit-cover"
+          alt="Interior"
+        />
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <button
+      class="carousel-control-prev custom-control w-50 start-0"
+      type="button"
+      data-bs-target="#agenciaCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-icon-wrapper">
+        <span class="carousel-control-prev-icon"></span>
+      </span>
+    </button>
+
+    <button
+      class="carousel-control-next custom-control w-50 end-0"
+      type="button"
+      data-bs-target="#agenciaCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-icon-wrapper">
+        <span class="carousel-control-next-icon"></span>
+      </span>
+    </button>
+    <!-- Indicadores -->
+    <div class="carousel-indicators mt-3">
+      <button
+        type="button"
+        data-bs-target="#agenciaCarousel"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#agenciaCarousel"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+    </div>
   </div>
 </section>
 
 <!-- SERVICIOS -->
-<section class="py-5 bg-light" id="servicios">
+<section class="py-5" id="servicios" style="background-color: #36090e">
   <div class="container text-center">
     <h2
       class="mb-4 fw-bold animate-on-scroll"
       data-animation="animate__fadeInUp"
+      style="color: white"
     >
       ¿Qué ofrecemos?
     </h2>
     <div class="row g-4">
       <div class="col-md-4">
         <div
-          class="p-4 bg-white shadow rounded h-100 animate-on-scroll"
+          class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
+          style="background-color: #36090e; color: white; border: 1px solid white;"
         >
-          <h5>🚗 Autos seleccionados</h5>
+          <fa-icon [icon]="faCarSide" style="color: white; font-size: 1.2em;"></fa-icon>
+          <h5>Autos seleccionados</h5>
           <p>Usados seleccionados y 0 km con garantía.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div
-          class="p-4 bg-white shadow rounded h-100 animate-on-scroll"
+          class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
+          style="background-color: #36090e; color: white; border: 1px solid white;"
         >
-          <h5>🏦 Financiación</h5>
+          <fa-icon [icon]="faBank" style="color: white; font-size: 1.2em;"></fa-icon>
+          <h5>Financiación</h5>
           <p>Créditos rápidos a través de Bancor, Santander, etc.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div
-          class="p-4 bg-white shadow rounded h-100 animate-on-scroll"
+          class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
+          style="background-color: #36090e; color: white; border: 1px solid white;"
         >
-          <h5>🔄 Tomamos tu usado</h5>
+          <fa-icon [icon]="faRotate" style="color: white; font-size: 1.2em;"></fa-icon>
+          <h5> Tomamos tu usado</h5>
           <p>Recibimos tu auto como parte de pago.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+<!-- ENTREGAS -->
+<section
+  class="carousel-section position-relative text-white animate-on-scroll"
+  data-animation="animate__zoomIn"
+>
+  <!-- Texto flotante centrado -->
+  <div
+    class="position-absolute start-50 translate-middle text-center z-3"
+    style="top: 80% !important"
+  >
+    <h2 class="fw-bold display-4 text-shadow">Entregas recientes</h2>
+    <p class="lead text-shadow">Nuestros clientes felices con su nuevo auto</p>
+  </div>
+
+  <!-- Fondo oscuro para contraste -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50 z-2 pointer-none"
+  ></div>
+
+  <!-- Carrusel generado desde array -->
+  <div
+    id="entregasCarousel"
+    class="carousel slide h-100 z-1"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner h-100">
+      <div
+        *ngFor="let img of entregas; let i = index"
+        class="carousel-item h-100 bg-black"
+        [class.active]="i === 0"
+      >
+        <img
+          [src]="img"
+          class="carousel-img mx-auto d-block h-fixed"
+          alt="Entrega cliente {{ i + 1 }}"
+        />
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <button
+      class="carousel-control-prev custom-control w-50 start-0"
+      type="button"
+      data-bs-target="#entregasCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-icon-wrapper">
+        <span class="carousel-control-prev-icon"></span>
+      </span>
+    </button>
+    <button
+      class="carousel-control-next custom-control w-50 end-0"
+      type="button"
+      data-bs-target="#entregasCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-icon-wrapper">
+        <span class="carousel-control-next-icon"></span>
+      </span>
+    </button>
   </div>
 </section>
 
