@@ -1,0 +1,10 @@
+.hero-section {
+  background: linear-gradient(#00000099, #00000099),
+              url('/assets/img/hero.jpg') center/cover no-repeat;
+  height: 100vh;
+  color: white;
+}
+.logo{
+    width: 14em;
+    height: auto;
+}
