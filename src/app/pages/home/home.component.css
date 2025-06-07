@@ -1,16 +1,24 @@
 .hero-section {
   background: linear-gradient(#00000099, #00000099),
-              url('/assets/img/hero.jpg') center/cover no-repeat;
+    url("/assets/img/hero.jpg") center/cover no-repeat;
   height: 100vh;
   color: white;
 }
-.logo{
-    width: 14em;
-    height: auto;
+.logo {
+  width: 14em;
+  height: auto;
 }
-.logo-banner{
-    width: 40em;
-    height: auto;
+.logo-banner {
+  width: 40em;
+  height: auto;
+}
+.subtitulo-banner {
+  text-transform: uppercase;
+  font-size: larger;
+}
+/* Estilos Quienes somos */
+.parrafo-qs {
+  color: white;
 }
 
 .carousel-section {
@@ -61,11 +69,10 @@
   padding: 1rem 0;
 }
 
-
 .h-fixed {
-  height: 100%;        /* Altura fija */
-  width: auto;          /* Ancho automático según proporción */
-  object-fit: contain;  /* Opcional: evita que se recorte */
+  height: 100%; /* Altura fija */
+  width: auto; /* Ancho automático según proporción */
+  object-fit: contain; /* Opcional: evita que se recorte */
 }
 
 .chat-float-btn {
@@ -81,6 +88,24 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    height: 55vh;
+    margin-top: 3em;
+  }
+  .logo-banner {
+    width: 20em;
+  }
+  .subtitulo-banner {
+    font-size: 0.9em;
+  }
+  /* ESTILOS QUIENES SOMOS */
+  .parrafo-qs {
+    font-size: 0.9em;
+  }
+  /*ESTILOS CARROUSEL*/
+  .carousel-section{
+    height: 30vh;
+  }
   .chat-float-btn {
     width: 45px;
     height: 45px;
