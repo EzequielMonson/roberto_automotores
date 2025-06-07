@@ -19,12 +19,13 @@
     <!-- <p class="lead animate-on-scroll" data-animation="animate__fadeInUp">
       Transparencia, agilidad y confianza en cada paso.
     </p> -->
-    <!-- <a
-      class="btn btn-danger btn-lg mt-3 animate-on-scroll"
+    <a
+      class="btn btn-lg mt-3 animate-on-scroll"
+      style="border: 2px solid white; color: white;"
       data-animation="animate__fadeInUp"
       href="#autos"
-      >Ver vehículos disponibles</a
-    > -->
+      >Contactanos</a
+    >
   </div>
 </section>
 <!-- QUIÉNES SOMOS -->
@@ -378,3 +379,17 @@
     </div>
   </div>
 </section>
+<!-- Botón flotante -->
+<button
+  class="btn rounded-circle shadow-lg chat-float-btn"
+  style="background-color: #8d1926;"
+  (click)="openChat()"
+>
+  <fa-icon [icon]="faComments" style="color: white; font-size: 1.2em;"></fa-icon>
+</button>
+
+<!-- Chat overlay -->
+<app-chat
+  [showChat]="isChatOpen"
+  (closeChat)="closeChat()"
+></app-chat>

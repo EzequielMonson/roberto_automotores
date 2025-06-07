@@ -1,1 +1,28 @@
-<p>chat works!</p>
+<div class="chat-overlay" *ngIf="showChat" (click)="handleClose()">
+  <div class="chat-panel" (click)="$event.stopPropagation()">
+    <div class="chat-header">
+      <span>Preguntas Frecuentes</span>
+      <button
+        class="btn-close btn-close-white"
+        (click)="handleClose()"
+        aria-label="Cerrar"
+      ></button>
+    </div>
+
+    <div class="chat-body" #chatBody>
+      <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender">
+        <span [innerText]="msg.text"></span>
+        <ng-container *ngIf="msg.suggestions">
+          <p>Elegí una opción:</p>
+          <button
+            *ngFor="let item of faq"
+            class="btn btn-outline-light btn-sm me-2 mb-2"
+            (click)="selectQuestion(item)"
+          >
+            {{ item.question }}
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
