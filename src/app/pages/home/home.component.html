@@ -20,7 +20,7 @@
     </p> -->
     <a
       class="btn btn-lg mt-3 animate-on-scroll"
-      style="border: 2px solid white; color: white;"
+      style="border: 2px solid white; color: white"
       data-animation="animate__fadeInUp"
       href="#autos"
       >Contactanos</a
@@ -40,7 +40,6 @@
     <p
       class="lead animate-on-scroll parrafo-qs"
       data-animation="animate__zoomIn"
-      
     >
       Somos una agencia con más de 30 años de experiencia en la venta de autos
       usados y 0 km. Nos especializamos en brindar atención personalizada,
@@ -52,12 +51,12 @@
 <section class="carousel-section position-relative text-white">
   <!-- Texto flotante centrado -->
   <div
-    class="position-absolute start-50 translate-middle text-center z-3 animate-on-scroll"
+    class="contenedor-titulo-na position-absolute start-50 translate-middle text-center z-3 animate-on-scroll"
     data-animation="animate__zoomIn"
-    style="top: 80% !important"
+    style=""
   >
-    <h2 class="fw-bold display-4 text-shadow">Nuestra agencia</h2>
-    <p class="lead text-shadow">
+    <h2 class="titulo-na fw-bold display-4 text-shadow">Nuestra agencia</h2>
+    <p class="subtitulo-na lead text-shadow">
       Conocé el lugar donde comienza tu próxima aventura
     </p>
   </div>
@@ -148,9 +147,16 @@
         <div
           class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
-          style="background-color: #36090e; color: white; border: 1px solid white;"
+          style="
+            background-color: #36090e;
+            color: white;
+            border: 1px solid white;
+          "
         >
-          <fa-icon [icon]="faCarSide" style="color: white; font-size: 1.2em;"></fa-icon>
+          <fa-icon
+            [icon]="faCarSide"
+            style="color: white; font-size: 1.2em"
+          ></fa-icon>
           <h5>Autos seleccionados</h5>
           <p>Usados seleccionados y 0 km con garantía.</p>
         </div>
@@ -159,9 +165,16 @@
         <div
           class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
-          style="background-color: #36090e; color: white; border: 1px solid white;"
+          style="
+            background-color: #36090e;
+            color: white;
+            border: 1px solid white;
+          "
         >
-          <fa-icon [icon]="faBank" style="color: white; font-size: 1.2em;"></fa-icon>
+          <fa-icon
+            [icon]="faBank"
+            style="color: white; font-size: 1.2em"
+          ></fa-icon>
           <h5>Financiación</h5>
           <p>Créditos rápidos a través de Bancor, Santander, etc.</p>
         </div>
@@ -170,10 +183,17 @@
         <div
           class="p-4 shadow rounded h-100 animate-on-scroll"
           data-animation="animate__fadeInUp"
-          style="background-color: #36090e; color: white; border: 1px solid white;"
+          style="
+            background-color: #36090e;
+            color: white;
+            border: 1px solid white;
+          "
         >
-          <fa-icon [icon]="faRotate" style="color: white; font-size: 1.2em;"></fa-icon>
-          <h5> Tomamos tu usado</h5>
+          <fa-icon
+            [icon]="faRotate"
+            style="color: white; font-size: 1.2em"
+          ></fa-icon>
+          <h5>Tomamos tu usado</h5>
           <p>Recibimos tu auto como parte de pago.</p>
         </div>
       </div>
@@ -181,16 +201,16 @@
   </div>
 </section>
 <!-- ENTREGAS -->
-<section
-  class="carousel-section position-relative text-white"
->
+<section class="carousel-section position-relative text-white">
   <!-- Texto flotante centrado -->
   <div
     class="position-absolute start-50 translate-middle text-center z-3"
     style="top: 80% !important"
   >
-    <h2 class="fw-bold display-4 text-shadow">Entregas recientes</h2>
-    <p class="lead text-shadow">Nuestros clientes felices con su nuevo auto</p>
+    <h2 class="titulo-na fw-bold display-4 text-shadow">Entregas recientes</h2>
+    <p class="subtitulo-na lead text-shadow">
+      Nuestros clientes felices con su nuevo auto
+    </p>
   </div>
 
   <!-- Fondo oscuro para contraste -->
@@ -241,9 +261,8 @@
     </button>
   </div>
 </section>
-
 <!-- PROPÓSITO -->
-<section
+<!-- <section
   class="py-5"
   id="proposito"
   style="background-color: #4c0d14; color: #fff"
@@ -289,106 +308,130 @@
       </li>
     </ul>
   </div>
-</section>
-
+</section> -->
 <!-- VALORES -->
-<section class="py-5 bg-light" id="valores">
-  <div class="container text-center">
+<section id="valores" class="valores-section position-relative">
+  <!-- Overlay decorativo -->
+  <div class="overlay-shape"></div>
+
+  <div class="container text-center position-relative z-2">
     <h2
-      class="fw-bold mb-4 animate-on-scroll"
+      class="valores-title animate-on-scroll"
       data-animation="animate__fadeInUp"
     >
       Nuestros valores
     </h2>
-    <div class="row g-3">
+
+    <!-- Primera fila: 3 valores -->
+    <div class="row justify-content-center g-4 mb-4">
       <div
-        class="col-md-2 offset-md-1 animate-on-scroll"
+        class="col-md-4 animate-on-scroll"
         data-animation="animate__fadeInUp"
       >
-        <p>🔐 <strong>Confianza</strong></p>
+        <div class="valor-item">
+          <fa-icon [icon]="faShield"></fa-icon>
+          <h5 class="mt-3">Confianza</h5>
+          <p>Brindamos seguridad en cada paso del proceso.</p>
+        </div>
       </div>
       <div
-        class="col-md-2 animate-on-scroll"
+        class="col-md-4 animate-on-scroll"
         data-animation="animate__fadeInUp"
       >
-        <p>⚡ <strong>Agilidad</strong></p>
+        <div class="valor-item">
+          <fa-icon [icon]="faBolt"></fa-icon>
+          <h5 class="mt-3">Agilidad</h5>
+          <p>Procesos rápidos y soluciones al instante.</p>
+        </div>
       </div>
       <div
-        class="col-md-2 animate-on-scroll"
+        class="col-md-4 animate-on-scroll"
         data-animation="animate__fadeInUp"
       >
-        <p>🔍 <strong>Transparencia</strong></p>
+        <div class="valor-item">
+          <fa-icon [icon]="faSearch"></fa-icon>
+          <h5 class="mt-3">Transparencia</h5>
+          <p>Información clara, sin letras chicas ni vueltas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segunda fila: 2 valores centrados -->
+    <div class="row justify-content-center g-4">
+      <div
+        class="col-md-4 animate-on-scroll"
+        data-animation="animate__fadeInUp"
+      >
+        <div class="valor-item">
+          <fa-icon [icon]="faHandHoldingHand"></fa-icon>
+          <h5 class="mt-3">Cercanía</h5>
+          <p>Te acompañamos desde el primer momento.</p>
+        </div>
       </div>
       <div
-        class="col-md-2 animate-on-scroll"
+        class="col-md-4 animate-on-scroll"
         data-animation="animate__fadeInUp"
       >
-        <p>🤝 <strong>Cercanía</strong></p>
+        <div class="valor-item">
+          <fa-icon [icon]="faTools"></fa-icon>
+          <h5 class="mt-3">Resolución</h5>
+          <p>Encontramos soluciones reales a tus necesidades.</p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+<!-- CONTACTO -->
+<section class="" id="contacto" style="background-color: #000000; color: #fff">
+  <div class="">
+    <div class="contenedor-contacto row align-items-center">
+      <!-- Columna izquierda -->
       <div
-        class="col-md-2 animate-on-scroll"
-        data-animation="animate__fadeInUp"
+        class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0"
+        
       >
-        <p>🛠️ <strong>Resolución</strong></p>
+        <h2
+          class=" titulo-contacto fw-bold mb-3 animate-on-scroll"
+          data-animation="animate__fadeInUp"
+        >
+          ¿Querés que te asesoremos?
+        </h2>
+        <p
+          class="subtitulo-contacto lead animate-on-scroll"
+          data-animation="animate__fadeInUp"
+        >
+          Llamanos, escribinos por WhatsApp o visitanos en nuestro local.
+        </p>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="item-contacto-d col-md-6 text-center">
+        <img
+          src="assets/img/Logo.png"
+          alt="Logo Roberto Automotores"
+          class="logo animate-on-scroll"
+          data-animation="animate__zoomIn"
+        />
+        <a
+          class="btn btn-lg mt-3 animate-on-scroll"
+          style="border: 2px solid white; color: white"
+          data-animation="animate__fadeInUp"
+          href=""
+          >Contactanos</a
+        >
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section
-  class="py-5"
-  id="contacto"
-  style="background-color: #200609; color: #fff"
->
-  <div class="container text-center">
-    <h2
-      class="fw-bold mb-4 animate-on-scroll"
-      data-animation="animate__fadeInUp"
-    >
-      ¿Querés que te asesoremos?
-    </h2>
-    <p class="lead animate-on-scroll" data-animation="animate__fadeInUp">
-      Llamanos, escribinos por WhatsApp o visitanos en nuestro local.
-    </p>
-    <p class="mb-3 animate-on-scroll" data-animation="animate__fadeInUp">
-      📍 Humberto Primo 633, Córdoba
-    </p>
-    <a
-      href="https://wa.me/5493510000000"
-      class="btn btn-success btn-lg animate-on-scroll"
-      data-animation="animate__fadeInUp"
-      >Contactanos por WhatsApp</a
-    >
-    <div class="mt-3">
-      <a
-        href="https://www.facebook.com/peiranoautomotores"
-        target="_blank"
-        class="text-white me-3 animate-on-scroll"
-        data-animation="animate__fadeInUp"
-        >Facebook</a
-      >
-      <a
-        href="https://www.instagram.com/robertoautomotores/"
-        target="_blank"
-        class="text-white animate-on-scroll"
-        data-animation="animate__fadeInUp"
-        >Instagram</a
-      >
-    </div>
-  </div>
-</section>
 <!-- Botón flotante -->
 <button
   class="btn rounded-circle shadow-lg chat-float-btn"
-  style="background-color: #8d1926;"
+  style="background-color: #8d1926"
   (click)="openChat()"
 >
-  <fa-icon [icon]="faComments" style="color: white; font-size: 1.2em;"></fa-icon>
+  <fa-icon [icon]="faComments" style="color: white; font-size: 1.2em"></fa-icon>
 </button>
 
 <!-- Chat overlay -->
-<app-chat
-  [showChat]="isChatOpen"
-  (closeChat)="closeChat()"
-></app-chat>
+<app-chat [showChat]="isChatOpen" (closeChat)="closeChat()"></app-chat>

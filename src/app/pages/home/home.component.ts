@@ -6,6 +6,11 @@ import {
   faBank,
   faCarSide,
   faComments,
+  faShield,
+  faBolt,
+  faSearch,
+  faHandHoldingHand,
+  faTools
 } from '@fortawesome/free-solid-svg-icons';
 import { ChatComponent } from '../../components/chat/chat.component';
 @Component({
@@ -17,6 +22,11 @@ import { ChatComponent } from '../../components/chat/chat.component';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   entregas: string[] = [];
+  faHandHoldingHand = faHandHoldingHand;
+  faTools = faTools;
+  faSearch = faSearch;
+  faShield = faShield;
+  faBolt = faBolt;
   faComments = faComments;
   faRotate = faRotate;
   faBank = faBank;
