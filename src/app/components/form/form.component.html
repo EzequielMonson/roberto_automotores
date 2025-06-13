@@ -1,0 +1,130 @@
+
+<div *ngIf="!enviando && !mensajeEnviado" class="contenedor-principal">
+    
+    <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+    <div class="contenedor-logo">
+      <img
+        class="logo"
+        src="/assets/img/Logo.png"
+        alt="Logo Roberto Automotores"
+      />
+    </div>
+
+    <div class="titulo-form">
+      <h3>¿Querés que te asesoremos?</h3>
+      <p class="text-light">Completá tus datos y te ayudamos a encontrar tu próximo auto.</p>
+    </div>
+
+    <div [ngClass]="{ 'form-controls': true, error: formHasErrors() }">
+
+      <!-- Nombre -->
+      <div class="input-container">
+        <input
+          id="name"
+          formControlName="name"
+          placeholder="Tu nombre completo"
+          [ngClass]="{
+            error:
+              contactForm.get('name')?.invalid &&
+              contactForm.get('name')?.touched
+          }"
+        />
+        <div class="tooltip-error" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+          <span *ngIf="contactForm.get('name')?.hasError('required')">El nombre es obligatorio.</span>
+          <span *ngIf="contactForm.get('name')?.hasError('minlength')">Mínimo 3 caracteres.</span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="input-container">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Correo electrónico"
+          [ngClass]="{
+            error:
+              contactForm.get('email')?.invalid &&
+              contactForm.get('email')?.touched
+          }"
+        />
+        <div class="tooltip-error" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+          <span *ngIf="contactForm.get('email')?.hasError('required')">El email es obligatorio.</span>
+          <span *ngIf="contactForm.get('email')?.hasError('email')">Formato inválido.</span>
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="Teléfono de contacto"
+          [ngClass]="{
+            error:
+              contactForm.get('phone')?.invalid &&
+              contactForm.get('phone')?.touched
+          }"
+        />
+        <div class="tooltip-error" *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
+          <span *ngIf="contactForm.get('phone')?.hasError('required')">El teléfono es obligatorio.</span>
+          <span *ngIf="contactForm.get('phone')?.hasError('pattern')">Sólo números.</span>
+        </div>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="input-container">
+        <textarea
+          formControlName="message"
+          placeholder="¿Qué tipo de vehículo te interesa o qué consulta tenés?"
+          [ngClass]="{
+            error:
+              contactForm.get('message')?.invalid &&
+              contactForm.get('message')?.touched
+          }"
+        ></textarea>
+        <div class="tooltip-error" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+          <span *ngIf="contactForm.get('message')?.hasError('required')">El mensaje es obligatorio.</span>
+          <span *ngIf="contactForm.get('message')?.hasError('minlength')">Mínimo 10 caracteres.</span>
+        </div>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit" [disabled]="contactForm.invalid">Enviar consulta</button>
+    </div>
+  </form>
+</div>
+
+<!-- Enviando -->
+<div *ngIf="enviando" class="contenedor-principal">
+  <div class="cta-estado">
+    <div class="contenedor-logo">
+      <img
+        class="logo-dos"
+        src="/assets/img/Logo.png"
+        alt="Logo Roberto Automotores"
+      />
+    </div>
+    <div class="cta-estado-img">
+      <div class="spinner"></div>
+      <p class="info-text">Enviando tu consulta...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Enviado -->
+<div *ngIf="mensajeEnviado" class="contenedor-principal">
+  <div class="cta-estado">
+    <div class="contenedor-logo">
+      <img
+        class="logo-dos"
+        src="/assets/img/Logo.png"
+        alt="Logo Roberto Automotores"
+      />
+    </div>
+    <div class="cta-estado-img">
+      <fa-icon style="font-size: 10em; color: green" [icon]="faCheck"></fa-icon>
+      <p class="info-text">¡Gracias! Nos pondremos en contacto.</p>
+    </div>
+  </div>
+</div>
+<button class="cerrar-form" (click)="cerrar()"><fa-icon [icon]="faXmark" style="color: white; font-size: 1em"></fa-icon></button>

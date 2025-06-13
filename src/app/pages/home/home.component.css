@@ -160,13 +160,64 @@
 .chat-float-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   width: 55px;
   height: 55px;
-  z-index: 1040;
+  background-color: #8d1926;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+.chat-float-btn:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  z-index: 999;
+  width: 55px;
+  height: 55px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1); /* si usás íconos blancos */
+}
+.btn-subir {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: #8d1926;
+  border: none;
+  font-size: 24px;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* No clics cuando está oculto */
+}
+
+.btn-subir.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto; /* Habilita clics cuando es visible */
 }
 
 @media (max-width: 768px) {
@@ -214,7 +265,7 @@
     display: flex;
     flex-direction: column;
   }
-  .item-contacto-i{
+  .item-contacto-i {
     background: url(/assets/img/graficos/4.png) center / cover no-repeat;
   }
   .item-contacto-d {
@@ -235,5 +286,15 @@
     height: 45px;
     bottom: 15px;
     right: 15px;
+  }
+  .whatsapp-float {
+    width: 45px;
+    height: 45px;
+    bottom: 70px;
+    right: 15px;
+  }
+  .whatsapp-float img {
+    width: 25px;
+    height: 25px;
   }
 }

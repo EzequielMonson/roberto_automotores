@@ -15,16 +15,15 @@
     >
       Tu auto, sin vueltas.
     </h4>
-    <!-- <p class="lead animate-on-scroll" data-animation="animate__fadeInUp">
-      Transparencia, agilidad y confianza en cada paso.
-    </p> -->
-    <a
+    <button
       class="btn btn-lg mt-3 animate-on-scroll"
       style="border: 2px solid white; color: white"
+      (click)="goTo('form')"
       data-animation="animate__fadeInUp"
       href="#autos"
-      >Contactanos</a
     >
+      Contactanos
+    </button>
   </div>
 </section>
 <!-- QUIÉNES SOMOS -->
@@ -261,54 +260,6 @@
     </button>
   </div>
 </section>
-<!-- PROPÓSITO -->
-<!-- <section
-  class="py-5"
-  id="proposito"
-  style="background-color: #4c0d14; color: #fff"
->
-  <div class="container">
-    <h2
-      class="mb-4 text-center fw-bold animate-on-scroll"
-      data-animation="animate__fadeInUp"
-    >
-      Nuestro enfoque
-    </h2>
-    <p
-      class="lead text-center animate-on-scroll"
-      data-animation="animate__fadeInUp"
-    >
-      Sabemos que comprar un auto puede ser estresante. Por eso te acompañamos
-      desde el primer momento con asesoramiento real, sin vueltas.
-    </p>
-    <ul class="mt-4 row text-center">
-      <li
-        class="col-md-3 mb-3 animate-on-scroll"
-        data-animation="animate__fadeInUp"
-      >
-        ✔️ Asesoramiento integral
-      </li>
-      <li
-        class="col-md-3 mb-3 animate-on-scroll"
-        data-animation="animate__fadeInUp"
-      >
-        ✔️ Gestión completa
-      </li>
-      <li
-        class="col-md-3 mb-3 animate-on-scroll"
-        data-animation="animate__fadeInUp"
-      >
-        ✔️ Atención personalizada
-      </li>
-      <li
-        class="col-md-3 mb-3 animate-on-scroll"
-        data-animation="animate__fadeInUp"
-      >
-        ✔️ Procesos rápidos
-      </li>
-    </ul>
-  </div>
-</section> -->
 <!-- VALORES -->
 <section id="valores" class="valores-section position-relative">
   <!-- Overlay decorativo -->
@@ -388,10 +339,9 @@
       <!-- Columna izquierda -->
       <div
         class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0"
-        
       >
         <h2
-          class=" titulo-contacto fw-bold mb-3 animate-on-scroll"
+          class="titulo-contacto fw-bold mb-3 animate-on-scroll"
           data-animation="animate__fadeInUp"
         >
           ¿Querés que te asesoremos?
@@ -412,25 +362,43 @@
           class="logo animate-on-scroll"
           data-animation="animate__zoomIn"
         />
-        <a
+        <button
           class="btn btn-lg mt-3 animate-on-scroll"
           style="border: 2px solid white; color: white"
+          (click)="goTo('form')"
           data-animation="animate__fadeInUp"
-          href=""
-          >Contactanos</a
+          href="#autos"
         >
+          Contactanos
+        </button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Botón flotante -->
-<button
-  class="btn rounded-circle shadow-lg chat-float-btn"
-  style="background-color: #8d1926"
-  (click)="openChat()"
->
+<button class="btn rounded-circle chat-float-btn" (click)="openChat()">
   <fa-icon [icon]="faComments" style="color: white; font-size: 1.2em"></fa-icon>
+</button>
+<button
+  href="https://wa.me/5490000000000"
+  class="btn rounded-circle whatsapp-float"
+  target="_blank"
+  rel="noopener"
+>
+  <img
+    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+    alt="WhatsApp"
+  />
+</button>
+
+<!-- Botón flotante para subir -->
+<button
+  class="btn rounded-circle btn-subir"
+  [class.visible]="showScrollButton"
+  (click)="scrollToTop()"
+>
+  <fa-icon [icon]="faArrowUp" style="color: white; font-size: 1em"></fa-icon>
 </button>
 
 <!-- Chat overlay -->

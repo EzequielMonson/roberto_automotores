@@ -1,0 +1,257 @@
+.contenedor-principal {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 4% 10%;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  background-color: #000;
+
+  /* border-radius: 1em; */
+}
+body {
+  background: transparent !important;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1em; */
+  width: 90%;
+  height: 100%;
+}
+.contenedor-logo {
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  width: 35%;
+  height: auto;
+}
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+}
+/* .form-controls.error {
+  gap: 0.2em;
+} */
+.input-container {
+  position: relative;
+  /* margin-bottom: 1.5rem; */
+}
+
+input.error,
+textarea.error {
+  border-bottom: 2px solid #8d1926;
+  color: #8d1926 !important;
+}
+input.error::placeholder,
+textarea.error::placeholder {
+  color: #8d1926;
+}
+
+.tooltip-error {
+  position: absolute;
+  top: 50%;
+  left: 101%;
+  transform: translateY(-50%);
+  background-color: #8d1926;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-error::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #8d1926 transparent transparent;
+}
+.titulo-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 0 1em 1em 1em;
+}
+.titulo-form h1,
+h3 {
+  color: white;
+  padding: 0;
+  text-transform: uppercase;
+}
+.titulo-form h1 {
+  font-weight: 600;
+  font-size: 1.5em;
+  margin: 0;
+}
+.titulo-form h3 {
+  font-size: 0.7em;
+  font-weight: 500;
+}
+.cerrar-form {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+  z-index: 100;
+}
+input,
+textarea {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0.5em;
+  padding: 0.8em 1em;
+  font-size: 1em;
+  color: white !important;
+  font-family: "Kanit", sans-serif;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: white !important;
+  color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+  font-family: "Kanit", sans-serif;
+}
+
+/* input:focus,
+textarea:focus {
+  /* border-color: linear-gradient(
+    145deg,
+    rgba(172, 115, 255, 1) 0%,
+    rgba(87, 140, 255, 1) 50%,
+    rgba(3, 164, 255, 1) 100%
+  );
+ } */
+
+textarea {
+  resize: none;
+  min-height: 100px;
+  max-height: 200px; /* Altura máxima visible */
+  overflow-y: auto;
+}
+
+button[type="submit"] {
+  background-color: #8d1926;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.8em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #8d1926;
+}
+
+button[type="submit"]:disabled {
+  background: transparent;
+  border: 1px solid;
+  cursor: not-allowed;
+}
+.error small {
+  color: #8d1926;
+  font-size: 0.8rem;
+}
+
+.info-text {
+  font-family: "Kanit", sans-serif;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #8d1926;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cta-estado {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-top: 15%
+}
+.cta-estado-img {
+  display: flex;
+  flex-direction: column;
+}
+.logo-dos {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .contenedor-principal {
+    height: 100vh;
+    padding: 4% 2%;
+  }
+  .logo {
+    width: 80%;
+  }
+  form {
+    /* justify-content: space-around; */
+    height: 80%;
+  }
+  .cerrar-form {
+    top: 2.5em;
+    left: 0.5em;
+  }
+  .form-controls {
+    height: 100vh;
+    justify-content: space-around;
+  }
+  /* Mostrar tooltip arriba del input */
+  .tooltip-error {
+    top: -10px;
+    left: 80%;
+    transform: translateX(-50%) translateY(-100%);
+  }
+
+  .tooltip-error::after {
+    top: 2.7em;
+    left: 90%;
+    transform: translateX(-50%);
+    border-color: #ff4d4d transparent transparent transparent;
+  }
+}
