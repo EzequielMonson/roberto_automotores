@@ -27,7 +27,11 @@
   </div>
 </section>
 <!-- QUIÉNES SOMOS -->
-<section class="py-5 text-center" style="background-color: #200609">
+<section
+  class="py-5 text-center"
+  id="nosotros"
+  style="background-color: #200609"
+>
   <div class="container">
     <img
       src="assets/img/Logo.png"
@@ -52,7 +56,6 @@
   <div
     class="contenedor-titulo-na position-absolute start-50 translate-middle text-center z-3 animate-on-scroll"
     data-animation="animate__zoomIn"
-    style=""
   >
     <h2 class="titulo-na fw-bold display-4 text-shadow">Nuestra agencia</h2>
     <p class="subtitulo-na lead text-shadow">
@@ -135,9 +138,9 @@
 <section class="py-5" id="servicios" style="background-color: #36090e">
   <div class="container text-center">
     <h2
-      class="mb-4 fw-bold animate-on-scroll"
+      class="titulo-ns mb-4 fw-bold animate-on-scroll"
       data-animation="animate__fadeInUp"
-      style="color: white"
+
     >
       ¿Qué ofrecemos?
     </h2>
@@ -199,49 +202,56 @@
     </div>
   </div>
 </section>
-<!-- ENTREGAS -->
-<section class="carousel-section position-relative text-white">
-  <!-- Texto flotante centrado -->
-  <div
-    class="position-absolute start-50 translate-middle text-center z-3"
-    style="top: 80% !important"
-  >
-    <h2 class="titulo-na fw-bold display-4 text-shadow">Entregas recientes</h2>
-    <p class="subtitulo-na lead text-shadow">
-      Nuestros clientes felices con su nuevo auto
+<section class="carousel-section-autos position-relative text-white" id="autos">
+  <!-- Título flotante -->
+  <div class="contenedor-titulo-autos">
+    <h2 class="titulo-nau fw-bold display-4 text-shadow">Nuestros Autos</h2>
+    <p class="subtitulo-nau lead text-shadow">
+      Mirá algunos modelos disponibles
     </p>
   </div>
-
-  <!-- Fondo oscuro para contraste -->
   <div
-    class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50 z-2 pointer-none"
-  ></div>
-
-  <!-- Carrusel generado desde array -->
-  <div
-    id="entregasCarousel"
-    class="carousel slide h-100 z-1"
+    id="autosCarousel"
+    class="carousel slide z-1"
     data-bs-ride="carousel"
+    style="width: 100%"
   >
-    <div class="carousel-inner h-100">
+    <div class="carousel-inner">
       <div
-        *ngFor="let img of entregas; let i = index"
-        class="carousel-item h-100 bg-black"
+        *ngFor="let grupo of agruparAutos(autos); let i = index"
+        class="carousel-item"
         [class.active]="i === 0"
+        style="background: transparent"
       >
-        <img
-          [src]="img"
-          class="carousel-img mx-auto d-block h-fixed"
-          alt="Entrega cliente {{ i + 1 }}"
-        />
+        <div class="container contenedor-principal-fila">
+          <div class="contenedor-fila">
+            <div class="item" *ngFor="let auto of grupo">
+              <div
+                class="contenido-item card text-white mb-3"
+                style="cursor: pointer; height: 12em !important; width: 12em"
+                (click)="abrirOverlay(auto)"
+              >
+                <img
+                  [src]="auto.imagenes[0]"
+                  class="card-img-top"
+                  [alt]="auto.modelo"
+                  style="height: 140px; object-fit: cover"
+                />
+                <div class="card-body p-2 text-center">
+                  <p class="card-text">{{ auto.modelo }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Controles -->
     <button
-      class="carousel-control-prev custom-control w-50 start-0"
+      class="carousel-control-prev custom-control start-0"
       type="button"
-      data-bs-target="#entregasCarousel"
+      data-bs-target="#autosCarousel"
       data-bs-slide="prev"
     >
       <span class="carousel-icon-wrapper">
@@ -249,9 +259,9 @@
       </span>
     </button>
     <button
-      class="carousel-control-next custom-control w-50 end-0"
+      class="carousel-control-next custom-control end-0"
       type="button"
-      data-bs-target="#entregasCarousel"
+      data-bs-target="#autosCarousel"
       data-bs-slide="next"
     >
       <span class="carousel-icon-wrapper">
@@ -260,6 +270,83 @@
     </button>
   </div>
 </section>
+<!-- Overlay personalizado -->
+<div class="custom-overlay" *ngIf="overlayAbierto">
+  <div class="overlay-content bg-black p-4 rounded shadow text-dark">
+    <span class="cerrar fs-4" (click)="cerrarOverlay()">✕</span>
+
+    <div>
+      <div class="ctn-btn-overlay d-flex justify-content-center mt-2 gap-2">
+        <button
+          class="carousel-control-prev custom-control start-0"
+          (click)="imagenAnterior()"
+          style="height: 56%; top: 12%"
+        >
+          <span class="carousel-icon-wrapper">
+            <span class="carousel-control-prev-icon"></span>
+          </span>
+        </button>
+        <button
+          class="carousel-control-next custom-control end-0"
+          (click)="imagenSiguiente()"
+          style="height: 56%; top: 12%"
+        >
+          <span class="carousel-icon-wrapper">
+            <span class="carousel-control-next-icon"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="ctn-carrusel-overlay text-center mb-3">
+      <img
+        [src]="autoSeleccionado.imagenes[imagenActual]"
+        class="img-fluid rounded"
+        style="max-height: 76%"
+        alt="Imagen del auto"
+      />
+      <!-- Carrusel de miniaturas -->
+      <div class="miniaturas-container mt-3 d-flex gap-2">
+        <img
+          *ngFor="let img of autoSeleccionado.imagenes; let idx = index"
+          [src]="img"
+          (click)="imagenActual = idx"
+          [class.selected]="imagenActual === idx"
+          class="miniatura rounded shadow-sm"
+          alt="Miniatura"
+        />
+      </div>
+    </div>
+    <div class="ctn-descripcion-titulo text-center mt-4">
+      <h3 class="mb-3 text-center">
+        {{ autoSeleccionado?.modelo }}
+      </h3>
+      <div class="caracteristicas-auto">
+        <p><strong>Marca:</strong> {{ autoSeleccionado?.marca }}</p>
+        <p><strong>Versión:</strong> {{ autoSeleccionado?.version }}</p>
+        <p><strong>Año:</strong> {{ autoSeleccionado?.anio }}</p>
+        <p><strong>Combustible:</strong> {{ autoSeleccionado?.combustible }}</p>
+        <p><strong>Color:</strong> {{ autoSeleccionado?.color }}</p>
+        <div class="contenedor-bancos">
+          <img
+            *ngIf="autoSeleccionado?.aptoBancor"
+            src="/assets/img/graficos/6.png"
+            alt=""
+          />
+          <img src="/assets/img/graficos/4.png" alt="" />
+          <img src="/assets/img/graficos/5.png" alt="" />
+        </div>
+      </div>
+
+      <button
+        class="btn whatsapp-btn"
+        (click)="consultarDisponibilidad(autoSeleccionado)"
+      >
+        Consultar disponibilidad por WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- VALORES -->
 <section id="valores" class="valores-section position-relative">
   <!-- Overlay decorativo -->
@@ -340,18 +427,10 @@
       <div
         class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0"
       >
-        <h2
-          class="titulo-contacto fw-bold mb-3 animate-on-scroll"
-          data-animation="animate__fadeInUp"
-        >
-          ¿Querés que te asesoremos?
-        </h2>
-        <p
-          class="subtitulo-contacto lead animate-on-scroll"
-          data-animation="animate__fadeInUp"
-        >
-          Llamanos, escribinos por WhatsApp o visitanos en nuestro local.
-        </p>
+        <img
+          src="/assets/img/graficos/2.png"
+          alt="Banner Roberto Automotores"
+        />
       </div>
 
       <!-- Columna derecha -->
@@ -381,7 +460,7 @@
   <fa-icon [icon]="faComments" style="color: white; font-size: 1.2em"></fa-icon>
 </button>
 <button
-  href="https://wa.me/5490000000000"
+  onclick="window.open('https://wa.me/5493516348790', '_blank')"
   class="btn rounded-circle whatsapp-float"
   target="_blank"
   rel="noopener"
