@@ -4,6 +4,8 @@ import {
   OnDestroy,
   Renderer2,
   HostListener,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -30,6 +32,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   showScrollButton = false;
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollTop =
@@ -266,6 +269,42 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   imagenActual = 0;
   autosPorPagina = 5;
   indiceInicio = 0;
+  
+
+  isDragging = false;
+  startX = 0;
+  scrollLeft = 0;
+
+  startDrag(event: MouseEvent) {
+    this.isDragging = true;
+    this.startX = event.pageX - this.scrollContainer.nativeElement.offsetLeft;
+    this.scrollLeft = this.scrollContainer.nativeElement.scrollLeft;
+  }
+
+  onDrag(event: MouseEvent) {
+    if (!this.isDragging) return;
+    event.preventDefault();
+    const x = event.pageX - this.scrollContainer.nativeElement.offsetLeft;
+    const walk = (x - this.startX) * 1.5;
+    this.scrollContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
+  }
+
+  stopDrag() {
+    this.isDragging = false;
+  }
+
+  startTouch(event: TouchEvent) {
+    this.isDragging = true;
+    this.startX = event.touches[0].pageX;
+    this.scrollLeft = this.scrollContainer.nativeElement.scrollLeft;
+  }
+
+  onTouchMove(event: TouchEvent) {
+    if (!this.isDragging) return;
+    const x = event.touches[0].pageX;
+    const walk = (x - this.startX) * 1.5;
+    this.scrollContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
+  }
 
   abrirOverlay(auto: any) {
     this.autoSeleccionado = auto;

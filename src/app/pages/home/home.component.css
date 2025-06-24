@@ -257,8 +257,6 @@
   background-color: #8d1926 !important;
 }
 
-
-
 .whatsapp-btn {
   background-color: #25d366;
   color: white;
@@ -272,9 +270,18 @@
 .whatsapp-btn:hover {
   background-color: #1ebe5d;
 }
+.contenedor-controles {
+  position: absolute;
+  width: 50%;
+  height: 90%;
+}
+.ctn-btn-overlay {
+  z-index: 1;
+}
+
 .ctn-carrusel-overlay {
   width: 50%;
-  height: auto;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -322,14 +329,23 @@
   width: 33.33%;
 }
 .miniaturas-container {
-  padding: 0.5rem;
+  z-index: 5;
   width: 100%;
+  display: flex;
+  gap: 0.5rem;
   overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+  cursor: grab;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
 }
-
-/* Scrollbar styling (webkit) */
 .miniaturas-container::-webkit-scrollbar {
-  height: 6px; /* Altura del scrollbar */
+  display: none;
+}
+.miniaturas-container:active {
+  cursor: grabbing;
 }
 
 .miniaturas-container::-webkit-scrollbar-track {
@@ -621,6 +637,11 @@
     font-size: 1.4em;
   }
   /*ESTILOS NUESTROS AUTOS*/
+  .contenedor-controles {
+    position: static;
+    width: 0;
+    height: 0;
+  }
   .titulo-na {
     font-size: 1.4em;
   }
@@ -662,7 +683,8 @@
   }
   .ctn-carrusel-overlay {
     width: 100%;
-    height: 40%;
+    height: 44%;
+    gap: 2%;
     margin-top: 14%;
   }
   .card-text {
@@ -670,7 +692,7 @@
   }
   .miniaturas-container {
     padding: 0;
-    height: 20%;
+    height: 25%;
     overflow-y: hidden;
   }
   .ctn-descripcion-titulo {

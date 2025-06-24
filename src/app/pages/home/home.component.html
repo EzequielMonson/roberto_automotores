@@ -140,7 +140,6 @@
     <h2
       class="titulo-ns mb-4 fw-bold animate-on-scroll"
       data-animation="animate__fadeInUp"
-
     >
       ¿Qué ofrecemos?
     </h2>
@@ -275,7 +274,7 @@
   <div class="overlay-content bg-black p-4 rounded shadow text-dark">
     <span class="cerrar fs-4" (click)="cerrarOverlay()">✕</span>
 
-    <div>
+    <div class="contenedor-controles">
       <div class="ctn-btn-overlay d-flex justify-content-center mt-2 gap-2">
         <button
           class="carousel-control-prev custom-control start-0"
@@ -305,7 +304,17 @@
         alt="Imagen del auto"
       />
       <!-- Carrusel de miniaturas -->
-      <div class="miniaturas-container mt-3 d-flex gap-2">
+      <div
+        class="miniaturas-container d-flex gap-2"
+        #scrollContainer
+        (mousedown)="startDrag($event)"
+        (mousemove)="onDrag($event)"
+        (mouseup)="stopDrag()"
+        (mouseleave)="stopDrag()"
+        (touchstart)="startTouch($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="stopDrag()"
+      >
         <img
           *ngFor="let img of autoSeleccionado.imagenes; let idx = index"
           [src]="img"
@@ -316,7 +325,7 @@
         />
       </div>
     </div>
-    <div class="ctn-descripcion-titulo text-center mt-4">
+    <div class="ctn-descripcion-titulo text-center">
       <h3 class="mb-3 text-center">
         {{ autoSeleccionado?.modelo }}
       </h3>
