@@ -20,6 +20,8 @@ import {
   faHandHoldingHand,
   faTools,
   faArrowUp,
+  faCheck,
+  faCreditCard
 } from '@fortawesome/free-solid-svg-icons';
 import { ChatComponent } from '../../components/chat/chat.component';
 import { Router } from '@angular/router';
@@ -46,6 +48,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.showScrollButton = scrollTop > windowHeight / 2;
   }
   entregas: string[] = [];
+  faCreditCard= faCreditCard;
+  faCheck = faCheck;
   faArrowUp = faArrowUp;
   faHandHoldingHand = faHandHoldingHand;
   faTools = faTools;

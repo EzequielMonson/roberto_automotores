@@ -1,6 +1,6 @@
 .hero-section {
   background: linear-gradient(#00000099, #00000099),
-    url("/assets/img/hero.jpg") center/cover no-repeat;
+    url("/assets/img/hero.webp") center/cover no-repeat;
   height: 100vh;
   color: white;
 }
@@ -322,11 +322,13 @@
 .contenedor-bancos {
   display: flex;
   width: 100%;
+  justify-content: flex-end;
+  align-items: center;
 }
 .contenedor-bancos img {
-  height: 4em;
+  height: 3em;
   align-self: flex-end;
-  width: 33.33%;
+  width: 30%;
 }
 .miniaturas-container {
   z-index: 5;
@@ -375,6 +377,19 @@
 
 .miniatura.selected {
   border-color: #8d1825;
+}
+/*ESTILOS FINANCIACION*/
+.card-metodo {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 0, 64, 0.5); /* rojo suave */
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(255, 0, 64, 0.2); /* leve glow */
+  transition: all 0.3s ease-in-out;
+}
+
+.card-metodo:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 64, 0.4);
+  transform: translateY(-4px);
 }
 
 /*NUESTROS CLIENTES*/
@@ -707,5 +722,9 @@
   }
   .miniatura {
     max-width: 80px;
+  }
+  /*Estilos financiacion*/
+  .border-divider-md {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
   }
 }

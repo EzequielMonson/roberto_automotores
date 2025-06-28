@@ -8,6 +8,18 @@ import {
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+type ChatMessageButton =
+  | { label: string; url: string; external?: boolean; question?: string }
+  | { label: string; action: string; question?: string };
+
+type ChatMessage = {
+  sender: 'user' | 'bot';
+  text: string;
+  suggestions?: boolean;
+  buttons?: ChatMessageButton[];
+};
+
 @Component({
   selector: 'app-chat',
   standalone: true,
@@ -18,16 +30,17 @@ import { CommonModule } from '@angular/common';
 export class ChatComponent {
   @Input() showChat = false;
   @Output() closeChat = new EventEmitter<void>();
+  @Output() questionSelected = new EventEmitter<string>();
   @ViewChild('chatBody') chatBody!: ElementRef<HTMLDivElement>;
+  constructor(private router: Router) {}
 
-  messages: { sender: 'user' | 'bot'; text: string; suggestions?: boolean }[] =
-    [
-      {
-        sender: 'bot',
-        text: '👋 ¡Hola! ¿En qué te puedo ayudar? Elegí una pregunta:',
-      },
-      { sender: 'bot', text: '', suggestions: true },
-    ];
+  messages: ChatMessage[] = [
+    {
+      sender: 'bot',
+      text: '👋 ¡Hola! ¿En qué te puedo ayudar? Elegí una pregunta:',
+    },
+    { sender: 'bot', text: '', suggestions: true },
+  ];
 
   // Separar preguntas en 2 grupos para "cambiar"
   faqGroups = [
@@ -84,6 +97,34 @@ export class ChatComponent {
       },
     ];
   }
+  handleButtonClick(btn: ChatMessageButton) {
+  if (this.isAction(btn)) {
+    this.handleAction(btn.action, btn.question);
+  } else if (btn.external) {
+    window.open(btn.url, '_blank');
+  } else {
+    this.router.navigate([btn.url]);
+  }
+}
+
+  handleAction(action: string, question?: string) {
+    if (action === 'form') {
+      if (question) {
+        this.questionSelected.emit(question); // sigue emitiendo si quieres
+        this.router.navigate(['/form'], { queryParams: { question } });
+      } else {
+        this.router.navigate(['/form']);
+      }
+    }
+  }
+
+  isLink(btn: any): btn is { label: string; url: string; external?: boolean } {
+    return 'url' in btn;
+  }
+
+  isAction(btn: any): btn is { label: string; action: string } {
+    return 'action' in btn;
+  }
 
   selectQuestion(item: { question: string; answer: string }) {
     // Si la pregunta es "Otras preguntas", NO agregamos mensaje del usuario,
@@ -131,8 +172,24 @@ export class ChatComponent {
       // Mostrar la respuesta de la pregunta
       this.messages.push({
         sender: 'bot',
-        text: `${item.answer}\n\nSi tenés más dudas o tu pregunta no fue respondida, contactanos por WhatsApp o pasa por la agencia.`,
+        text: `${item.answer}<br><br>¿Querés avanzar con esta consulta?`,
+        buttons: [
+          {
+            label: 'Contactar por WhatsApp',
+            url: `https://wa.me/5493516348790?text=${encodeURIComponent(
+              `Hola ${item.question}`
+            )}`,
+            external: true,
+            question: item.question, // <== aquí
+          },
+          {
+            label: 'Envianos un correo',
+            action: 'form',
+            question: item.question, // <== aquí también
+          },
+        ],
       });
+
       this.scrollToBottom();
 
       // Mostrar mensaje con opciones (solo uno) al final
@@ -147,7 +204,9 @@ export class ChatComponent {
       }, 700);
     }, 500);
   }
-
+  goTo(ruta: string) {
+    this.router.navigate([`${ruta}`]);
+  }
   handleClose() {
     this.messages = [
       {

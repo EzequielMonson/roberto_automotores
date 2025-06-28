@@ -4,7 +4,7 @@
 >
   <div>
     <img
-      src="assets/img/Logo.png"
+      src="assets/img/Logo.webp"
       alt="Logo Roberto Automotores"
       class="logo-banner animate-on-scroll"
       data-animation="animate__zoomIn"
@@ -34,7 +34,7 @@
 >
   <div class="container">
     <img
-      src="assets/img/Logo.png"
+      src="assets/img/Logo.webp"
       alt="Logo Roberto Automotores"
       class="logo animate-on-scroll"
       data-animation="animate__zoomIn"
@@ -45,8 +45,10 @@
       data-animation="animate__zoomIn"
     >
       Somos una agencia con más de 30 años de experiencia en la venta de autos
-      usados y 0 km. Nos especializamos en brindar atención personalizada,
-      financiación rápida y acompañamiento real en todo el proceso.
+      usados seleccionados y 0 km en Córdoba. Nos especializamos en brindar
+      atención personalizada: te ayudamos a encontrar tu auto ideal, la
+      financiación que mejor se adapte a vos y te acompañamos en todo el
+      proceso.
     </p>
   </div>
 </section>
@@ -77,7 +79,8 @@
     <div class="carousel-inner h-100">
       <div class="carousel-item active h-100">
         <img
-          src="assets/img/agencia/agencia1.jpg"
+          loading="lazy"
+          src="assets/img/agencia/agencia1.webp"
           class="d-block w-100 h-100 object-fit-cover"
           alt="Fachada"
         />
@@ -85,7 +88,8 @@
 
       <div class="carousel-item h-100">
         <img
-          src="assets/img/agencia/agencia2.jpg"
+          loading="lazy"
+          src="assets/img/agencia/agencia2.webp"
           class="d-block w-100 h-100 object-fit-cover"
           alt="Interior"
         />
@@ -203,7 +207,8 @@
 </section>
 <section class="carousel-section-autos position-relative text-white" id="autos">
   <!-- Título flotante -->
-  <div class="contenedor-titulo-autos">
+  <div class="contenedor-titulo-autos animate-on-scroll"
+      data-animation="animate__fadeInUp">
     <h2 class="titulo-nau fw-bold display-4 text-shadow">Nuestros Autos</h2>
     <p class="subtitulo-nau lead text-shadow">
       Mirá algunos modelos disponibles
@@ -231,6 +236,7 @@
                 (click)="abrirOverlay(auto)"
               >
                 <img
+                  loading="lazy"
                   [src]="auto.imagenes[0]"
                   class="card-img-top"
                   [alt]="auto.modelo"
@@ -335,14 +341,13 @@
         <p><strong>Año:</strong> {{ autoSeleccionado?.anio }}</p>
         <p><strong>Combustible:</strong> {{ autoSeleccionado?.combustible }}</p>
         <p><strong>Color:</strong> {{ autoSeleccionado?.color }}</p>
-        <div class="contenedor-bancos">
-          <img
-            *ngIf="autoSeleccionado?.aptoBancor"
-            src="/assets/img/graficos/6.png"
-            alt=""
-          />
-          <img src="/assets/img/graficos/4.png" alt="" />
-          <img src="/assets/img/graficos/5.png" alt="" />
+        <div class="contenedor-bancos" *ngIf="autoSeleccionado?.aptoBancor">
+          <fa-icon
+            [icon]="faCheck"
+            style="color: green; font-size: 1.2em"
+          ></fa-icon>
+          <p style="font-size: 1.2em; font-weight: 500">Apto Bancor</p>
+          <img src="/assets/img/graficos/6.png" alt="Logo de Bancor" />
         </div>
       </div>
 
@@ -355,6 +360,73 @@
     </div>
   </div>
 </div>
+<!-- MÉTODOS DE PAGO -->
+<section class="py-5 text-white pb-5" style="background-color: black">
+  <div class="container">
+    <h2
+      class="titulo-nau text-center fw-bold mb-5 animate-on-scroll"
+      data-animation="animate__fadeInUp"
+    >
+      MÉTODOS DE PAGO
+    </h2>
+
+    <div class="row justify-content-center g-4">
+      <!-- Financiación bancaria -->
+      <div class="col-md-6">
+        <div
+          class="card-metodo h-100 text-center p-4 animate-on-scroll"
+          data-animation="animate__fadeInLeft"
+        >
+          <h4 class="fw-bold mb-3">
+            <i class="fa-solid fa-landmark me-2"></i>
+            Financiación bancaria
+          </h4>
+          <p class="lead mb-4">
+            Trabajamos con los principales bancos para ofrecerte planes de
+            financiación accesibles, seguros y rápidos.
+          </p>
+          <div
+            class="d-flex flex-wrap justify-content-center gap-3 align-items-center"
+          >
+            <img src="assets/img/graficos/6.png" alt="Bancor" height="40" />
+            <img src="assets/img/graficos/5.png" alt="Santander" height="40" />
+            <img
+              src="assets/img/graficos/4.png"
+              alt="Supervielle"
+              height="40"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta de crédito -->
+      <div class="col-md-6">
+        <div
+          class="card-metodo h-100 text-center p-4 animate-on-scroll"
+          data-animation="animate__fadeInRight"
+        >
+          <h4 class="fw-bold mb-3">
+            <i class="fa-solid fa-credit-card me-2"></i>
+            Pago con tarjeta de crédito
+          </h4>
+          <p class="lead mb-4">
+            Cubrí la entrega con tu tarjeta y llevate el auto en el acto.
+            <strong>Pagalo en cuotas fijas</strong> y empezá a disfrutarlo hoy.
+          </p>
+          <button class="btn btn-outline-light mt-2" (click)="goTo('form')">
+            Consultanos ahora
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <p class="fw-semibold fst-italic" style="opacity: 0.8">
+        Entrega inmediata. Financiación clara. Todo en un solo lugar.
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- VALORES -->
 <section id="valores" class="valores-section position-relative">
@@ -434,10 +506,11 @@
     <div class="contenedor-contacto row align-items-center">
       <!-- Columna izquierda -->
       <div
-        class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0"
+        class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0 animate-on-scroll"
+          data-animation="animate__fadeInLeft"
       >
         <img
-          src="/assets/img/graficos/2.png"
+          src="/assets/img/graficos/2.webp"
           alt="Banner Roberto Automotores"
         />
       </div>
@@ -445,7 +518,7 @@
       <!-- Columna derecha -->
       <div class="item-contacto-d col-md-6 text-center">
         <img
-          src="assets/img/Logo.png"
+          src="assets/img/Logo.webp"
           alt="Logo Roberto Automotores"
           class="logo animate-on-scroll"
           data-animation="animate__zoomIn"

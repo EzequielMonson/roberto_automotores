@@ -1,33 +1,51 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { EmailService } from '../../services/email.service';
 import { CommonModule } from '@angular/common';
 import { ToastService } from '../../services/toast.service';
 import { Output, EventEmitter } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.css'
+  styleUrl: './form.component.css',
 })
 export class FormComponent {
   faXmark = faXmark;
   faCheck = faCheck;
   enviando: boolean = false;
   mensajeEnviado: boolean = false;
+  preguntaRecibida: string | null = null;
   contactForm: FormGroup;
   @Output() cerrarFormulario = new EventEmitter<boolean>();
-  constructor(private fb: FormBuilder, private emailService: EmailService, private toastService: ToastService, private router: Router ) {
+  constructor(
+    private fb: FormBuilder,
+    private emailService: EmailService,
+    private toastService: ToastService,
+    private router: Router,
+    private route: ActivatedRoute // <-- inyectar ActivatedRoute
+  ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       message: ['', [Validators.required, Validators.minLength(10)]],
+    });
+    this.route.queryParams.subscribe((params) => {
+      this.preguntaRecibida = params['question'] || null;
+      if (this.preguntaRecibida) {
+        this.contactForm.patchValue({ message: `${this.preguntaRecibida}\n` });
+      }
     });
   }
 
@@ -50,16 +68,16 @@ export class FormComponent {
           this.toastService.showError('Error al enviar el mensaje.');
         },
       });
-    } 
+    }
   }
-
 
   formHasErrors(): boolean {
-    return Object.values(this.contactForm.controls).some(control => control.invalid && control.touched);
+    return Object.values(this.contactForm.controls).some(
+      (control) => control.invalid && control.touched
+    );
   }
-  
-  
+
   cerrar() {
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 }
