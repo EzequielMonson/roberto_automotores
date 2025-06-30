@@ -44,11 +44,10 @@
       class="lead animate-on-scroll parrafo-qs"
       data-animation="animate__zoomIn"
     >
-      Somos una agencia con más de 30 años de experiencia en la venta de autos
-      usados seleccionados y 0 km en Córdoba. Nos especializamos en brindar
-      atención personalizada: te ayudamos a encontrar tu auto ideal, la
-      financiación que mejor se adapte a vos y te acompañamos en todo el
-      proceso.
+      Venta de autos usados seleccionados y 0 km en Córdoba. Nos especializamos
+      en brindar atención personalizada: te ayudamos a encontrar tu auto ideal,
+      la financiación que mejor se adapte a vos y te acompañamos en
+      todo el proceso.
     </p>
   </div>
 </section>
@@ -207,8 +206,10 @@
 </section>
 <section class="carousel-section-autos position-relative text-white" id="autos">
   <!-- Título flotante -->
-  <div class="contenedor-titulo-autos animate-on-scroll"
-      data-animation="animate__fadeInUp">
+  <div
+    class="contenedor-titulo-autos animate-on-scroll"
+    data-animation="animate__fadeInUp"
+  >
     <h2 class="titulo-nau fw-bold display-4 text-shadow">Nuestros Autos</h2>
     <p class="subtitulo-nau lead text-shadow">
       Mirá algunos modelos disponibles
@@ -231,8 +232,7 @@
           <div class="contenedor-fila">
             <div class="item" *ngFor="let auto of grupo">
               <div
-                class="contenido-item card text-white mb-3"
-                style="cursor: pointer; height: 12em !important; width: 12em"
+                class="contenido-item d-flex flex-column justify-content-between text-white"
                 (click)="abrirOverlay(auto)"
               >
                 <img
@@ -240,10 +240,28 @@
                   [src]="auto.imagenes[0]"
                   class="card-img-top"
                   [alt]="auto.modelo"
-                  style="height: 140px; object-fit: cover"
+                  style="
+                    height: 140px;
+                    object-fit: cover;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                  "
                 />
-                <div class="card-body p-2 text-center">
-                  <p class="card-text">{{ auto.modelo }}</p>
+                <div
+                  class="p-2 text-center flex-grow-1 d-flex flex-column justify-content-between"
+                >
+                  <p class="card-text mb-2">2011 Fiat Palio Fire 1.4</p>
+
+                  <div
+                    class="btn-vermas d-inline-flex align-items-center justify-content-center gap-1 px-2 py-1 mt-auto mx-auto"
+                    (click)="abrirOverlay(auto)"
+                  >
+                    <fa-icon
+                      [icon]="faEye"
+                      style="color: white; font-size: 1em"
+                    ></fa-icon>
+                    Ver más
+                  </div>
                 </div>
               </div>
             </div>
@@ -507,7 +525,7 @@
       <!-- Columna izquierda -->
       <div
         class="item-contacto-i col-md-6 text-center text-md-start mb-4 mb-md-0 animate-on-scroll"
-          data-animation="animate__fadeInLeft"
+        data-animation="animate__fadeInLeft"
       >
         <img
           src="/assets/img/graficos/2.webp"

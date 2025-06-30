@@ -151,7 +151,8 @@
   border: 1px solid white;
   background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
-  height: 12em;
+  height: 14em;
+  border-radius: 8px;
   width: 12em;
   transition: transform 0.3s, background-color 0.3s;
   box-shadow: 0 0 15px rgba(179, 17, 36, 0.2);
@@ -184,6 +185,19 @@
   overflow-y: auto;
   position: relative;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.btn-vermas {
+  background-color: #ffffff22;
+  border-radius: 6px;
+  font-size: 0.85em;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+.btn-vermas:hover {
+  border: 1px solid white;
+  background: rgba(141, 24, 37, 0.05);
+  
 }
 
 .cerrar {
