@@ -46,8 +46,8 @@
     >
       Venta de autos usados seleccionados y 0 km en Córdoba. Nos especializamos
       en brindar atención personalizada: te ayudamos a encontrar tu auto ideal,
-      la financiación que mejor se adapte a vos y te acompañamos en
-      todo el proceso.
+      la financiación que mejor se adapte a vos y te acompañamos en todo el
+      proceso.
     </p>
   </div>
 </section>
@@ -248,12 +248,15 @@
                   "
                 />
                 <div
-                  class="p-2 text-center flex-grow-1 d-flex flex-column justify-content-between"
+                  class="card-auto p-2 text-center flex-grow-1 d-flex flex-column"
                 >
-                  <p class="card-text mb-2">2011 Fiat Palio Fire 1.4</p>
+                  <p class="card-text" >
+                    {{ auto.anio }} {{ auto.marca }} {{ auto.modelo }}
+                    {{ auto.version }}
+                  </p>
 
                   <div
-                    class="btn-vermas d-inline-flex align-items-center justify-content-center gap-1 px-2 py-1 mt-auto mx-auto"
+                    class="btn-vermas d-inline-flex align-items-center justify-content-center gap-1 px-2 py-1  mx-auto"
                     (click)="abrirOverlay(auto)"
                   >
                     <fa-icon
