@@ -354,7 +354,8 @@
     </div>
     <div class="ctn-descripcion-titulo text-center">
       <h3 class="mb-3 text-center">
-        {{ autoSeleccionado?.modelo }}
+        {{ autoSeleccionado?.anio }} {{ autoSeleccionado?.marca }} {{ autoSeleccionado?.modelo }}
+                    {{ autoSeleccionado?.version }}
       </h3>
       <div class="caracteristicas-auto">
         <p><strong>Marca:</strong> {{ autoSeleccionado?.marca }}</p>
