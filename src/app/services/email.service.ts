@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class EmailService {
-  private apiUrl = 'https://robertoautomotores.com/backend/sendMail.php';
+  private apiUrl = 'https://robertoautomotores.com.ar/backend/sendMail.php';
 
   constructor(private http: HttpClient) {}
 

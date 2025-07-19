@@ -22,7 +22,7 @@ import {
   faArrowUp,
   faCheck,
   faCreditCard,
-  faEye
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import { ChatComponent } from '../../components/chat/chat.component';
 import { Router } from '@angular/router';
@@ -50,7 +50,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
   entregas: string[] = [];
   faEye = faEye;
-  faCreditCard= faCreditCard;
+  faCreditCard = faCreditCard;
   faCheck = faCheck;
   faArrowUp = faArrowUp;
   faHandHoldingHand = faHandHoldingHand;
@@ -156,29 +156,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       imagenes: this.generarImagenes('PEUGEOT_208_ALLURE_TOUCHSCREEN_', 11),
     },
     {
-      modelo: '308',
-      marca: 'Peugeot',
-      version: 'Allure 1.6',
-      anio: 2018,
-      combustible: 'Nafta',
-      color: 'Blanco',
-      aptoBancor: true,
-      imagenes: this.generarImagenes('308_ALLURE_1.6_', 9),
-    },
-    {
-      modelo: 'Kangoo II',
-      marca: 'Renault',
-      version: 'Life 5 Asientos SCE 1.6',
-      anio: 2020,
-      combustible: 'Nafta',
-      color: 'Gris Oscuro',
-      aptoBancor: false,
-      imagenes: this.generarImagenes(
-        'RENAULT_KANGOO_II_LIFE_5_AS._SCE_1,6_',
-        7
-      ),
-    },
-    {
       modelo: 'KWID',
       marca: 'Renault',
       version: 'Iconic Bitono',
@@ -258,15 +235,76 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       aptoBancor: true,
       imagenes: this.generarImagenes('VENTO_LUXURY_TDI_', 8),
     },
+    
     {
-      modelo: 'Captiva',
+      modelo: 'Suran Cross',
+      marca: 'Volkswagen',
+      version: 'Highline',
+      anio: 2014,
+      combustible: 'GNC',
+      color: 'No especificado',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('VOLKSWAGEN_SURAN_CROSS_HIGHLINE_', 10),
+    },
+    {
+      modelo: 'March',
+      marca: 'Nissan',
+      version: 'Active Pure Drive 1.6',
+      anio: 2019,
+      combustible: 'Nafta',
+      color: 'Gris Oscuro',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('NISSAN_MARCH_ACTIVE_PURE_DRIVE_16_', 9),
+    },
+    {
+      modelo: '208',
+      marca: 'Peugeot',
+      version: 'Allure 1.6',
+      anio: 2018,
+      combustible: 'Nafta',
+      color: 'Plata',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('PEUGEOT_208_ALLURE_1_', 10),
+    },
+    {
+      modelo: 'Duster',
+      marca: 'Renault',
+      version: 'Luxe 2.0',
+      anio: 2014,
+      combustible: 'GNC',
+      color: 'Plata',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('RENAULT_DUSTER_LUXE_2_', 10),
+    },
+    {
+      modelo: '408',
+      marca: 'Peugeot',
+      version: 'Allure 2.0',
+      anio: 2013,
+      combustible: 'Nafta',
+      color: 'Blanco',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('PEUGEOT_408_ALLURE_2_', 7),
+    },
+    {
+      modelo: 'Meriva',
       marca: 'Chevrolet',
-      version: 'LT 2.4',
+      version: 'GL PLUS 1.8',
+      anio: 2012,
+      combustible: 'GNC',
+      color: 'Plata',
+      aptoBancor: true,
+      imagenes: this.generarImagenes('CHEVROLET_MERIVA_GL_PLUS_1.8_GNC_', 7),
+    },
+    {
+      modelo: 'Toro',
+      marca: 'Fiat',
+      version: 'Volcano 2.0 4x4',
       anio: 2017,
       combustible: 'Diesel',
-      color: 'Gris',
+      color: 'No especificado',
       aptoBancor: true,
-      imagenes: this.generarImagenes('CAPTIVA_', 10),
+      imagenes: this.generarImagenes('FIAT_TORO_20_VOLCANO_4X4_', 8),
     },
   ];
 
@@ -275,7 +313,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   imagenActual = 0;
   autosPorPagina = 5;
   indiceInicio = 0;
-  
 
   isDragging = false;
   startX = 0;

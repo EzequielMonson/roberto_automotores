@@ -162,7 +162,7 @@
             style="color: white; font-size: 1.2em"
           ></fa-icon>
           <h5>Autos seleccionados</h5>
-          <p>Usados seleccionados y 0 km con garantía.</p>
+          <p>Usados 0 km alistados y listos para transferir.</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -180,7 +180,7 @@
             style="color: white; font-size: 1.2em"
           ></fa-icon>
           <h5>Financiación</h5>
-          <p>Créditos rápidos a través de Bancor, Santander, etc.</p>
+          <p>Créditos rápidos con aprobación y entrega inmediata.<br>Te asesoramos para que elijas la financiación que mejor se adapte a vos.</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -198,7 +198,7 @@
             style="color: white; font-size: 1.2em"
           ></fa-icon>
           <h5>Tomamos tu usado</h5>
-          <p>Recibimos tu auto como parte de pago.</p>
+          <p>Recibimos tu auto como parte de pago.<br>Podés financiar el saldo en su totalidad.  </p>
         </div>
       </div>
     </div>
@@ -250,13 +250,13 @@
                 <div
                   class="card-auto p-2 text-center flex-grow-1 d-flex flex-column"
                 >
-                  <p class="card-text" >
+                  <p class="card-text">
                     {{ auto.anio }} {{ auto.marca }} {{ auto.modelo }}
                     {{ auto.version }}
                   </p>
 
                   <div
-                    class="btn-vermas d-inline-flex align-items-center justify-content-center gap-1 px-2 py-1  mx-auto"
+                    class="btn-vermas d-inline-flex align-items-center justify-content-center gap-1 px-2 py-1 mx-auto"
                     (click)="abrirOverlay(auto)"
                   >
                     <fa-icon
@@ -354,8 +354,9 @@
     </div>
     <div class="ctn-descripcion-titulo text-center">
       <h3 class="mb-3 text-center">
-        {{ autoSeleccionado?.anio }} {{ autoSeleccionado?.marca }} {{ autoSeleccionado?.modelo }}
-                    {{ autoSeleccionado?.version }}
+        {{ autoSeleccionado?.anio }} {{ autoSeleccionado?.marca }}
+        {{ autoSeleccionado?.modelo }}
+        {{ autoSeleccionado?.version }}
       </h3>
       <div class="caracteristicas-auto">
         <p><strong>Marca:</strong> {{ autoSeleccionado?.marca }}</p>
@@ -404,10 +405,11 @@
             Financiación bancaria
           </h4>
           <p class="lead mb-4">
-            Trabajamos con los principales bancos para ofrecerte planes de
-            financiación accesibles, seguros y rápidos.
+            Trabajamos con los principales bancos para ofrecerte la mejor oferta
+            en financiación acorde a tus posibilidades.<br />En todo caso de
+            financiación la entrega es inmediata.
           </p>
-          <div
+          <!-- <div
             class="d-flex flex-wrap justify-content-center gap-3 align-items-center"
           >
             <img src="assets/img/graficos/6.png" alt="Bancor" height="40" />
@@ -417,7 +419,7 @@
               alt="Supervielle"
               height="40"
             />
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -432,7 +434,7 @@
             Pago con tarjeta de crédito
           </h4>
           <p class="lead mb-4">
-            Cubrí la entrega con tu tarjeta y llevate el auto en el acto.
+            Financiá con tu tarjeta de crédito y llevate el auto en el acto.
             <strong>Pagalo en cuotas fijas</strong> y empezá a disfrutarlo hoy.
           </p>
           <button class="btn btn-outline-light mt-2" (click)="goTo('form')">

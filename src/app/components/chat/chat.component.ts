@@ -46,18 +46,19 @@ export class ChatComponent {
   faqGroups = [
     [
       {
-        question: '¿Venden autos usados y 0km?',
+        question: 'Quisiera que me contacten.',
         answer:
-          'Sí, contamos con autos usados seleccionados y 0km, todos con garantía.',
+          'Para ayudarte mejor, podés elegir entre enviarnos un correo (completando el formulario con tus datos) o escribirnos directamente por WhatsApp con tu consulta.',
       },
       {
-        question: '¿Qué tipos de financiación ofrecen?',
+        question: 'Necesito que me asesoren.',
         answer:
-          'Trabajamos con financiación a través de Bancor, Santander, Supervielle y más.',
+          '¡Claro! Para asesorarte correctamente, podés enviarnos un correo completando el formulario o escribirnos directamente por WhatsApp.',
       },
       {
-        question: '¿Puedo entregar mi auto como parte de pago?',
-        answer: 'Sí, recibimos autos usados como parte de pago.',
+        question: 'Quiero entregar mi usado y financiar el saldo',
+        answer:
+          'Podemos ayudarte con eso. Seleccioná "Envianos un correo" para dejarnos tus datos o escribinos por WhatsApp para una atención más directa.',
       },
       {
         question: '¿Cuánto demoran en entregar el vehículo?',
@@ -66,8 +67,9 @@ export class ChatComponent {
     ],
     [
       {
-        question: '¿Qué valores destacan a la agencia?',
-        answer: 'Transparencia, agilidad, confianza, cercanía y resolución.',
+        question: 'Quiero financiar con tarjeta de crédito.',
+        answer:
+          'Podés financiar con tarjeta sin problema. Para conocer más detalles, elegí enviar un correo o escribinos por WhatsApp para que te asesoremos personalmente.',
       },
       {
         question: '¿Tienen servicio postventa?',
@@ -92,20 +94,20 @@ export class ChatComponent {
     return [
       ...this.faqGroups[this.currentFaqIndex],
       {
-        question: 'Otras preguntas (cambiar y mostrar otras 4 preguntas)',
+        question: 'Otras preguntas',
         answer: '',
       },
     ];
   }
   handleButtonClick(btn: ChatMessageButton) {
-  if (this.isAction(btn)) {
-    this.handleAction(btn.action, btn.question);
-  } else if (btn.external) {
-    window.open(btn.url, '_blank');
-  } else {
-    this.router.navigate([btn.url]);
+    if (this.isAction(btn)) {
+      this.handleAction(btn.action, btn.question);
+    } else if (btn.external) {
+      window.open(btn.url, '_blank');
+    } else {
+      this.router.navigate([btn.url]);
+    }
   }
-}
 
   handleAction(action: string, question?: string) {
     if (action === 'form') {
@@ -130,7 +132,7 @@ export class ChatComponent {
     // Si la pregunta es "Otras preguntas", NO agregamos mensaje del usuario,
     // sólo cambiamos las opciones y actualizamos el mensaje de opciones.
     if (
-      item.question === 'Otras preguntas (cambiar y mostrar otras 4 preguntas)'
+      item.question === 'Otras preguntas'
     ) {
       this.currentFaqIndex = (this.currentFaqIndex + 1) % this.faqGroups.length;
 

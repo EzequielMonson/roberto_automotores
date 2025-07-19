@@ -16,6 +16,7 @@
           <p>Elegí una opción:</p>
           <button
             *ngFor="let item of faq"
+            style="width: 100%"
             class="btn btn-outline-light btn-sm me-2 mb-2"
             (click)="selectQuestion(item)"
           >
@@ -39,6 +40,7 @@
             <button
               *ngIf="isAction(btn)"
               class="btn btn-outline-light btn-sm"
+              
               (click)="handleButtonClick(btn)"
             >
               {{ btn.label }}
